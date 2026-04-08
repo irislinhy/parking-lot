@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f7fa">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="管理员控制台"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#1A237E"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"/>
+        <Button
+            android:id="@+id/btn_test_mqtt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试MQTT"
+            android:onClick="testMqtt"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← 返回"
+            android:onClick="goBack"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="停车次数统计（近7天）"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/bar_chart"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="10dp"
+                tools:ignore="MissingClass" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="收入占比"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"/>
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pie_chart"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="10dp"
+                tools:ignore="MissingClass" />
+        </LinearLayout>
+        <!-- 全景监控视频流 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全景监控"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_marginTop="10dp">
+
+                <com.google.android.exoplayer2.ui.PlayerView
+                    android:id="@+id/player_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/overlay_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|start"
+                    android:background="#AA000000"
+                    android:padding="8dp"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <!-- 摄像头切换按钮 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+                <Button
+                    android:id="@+id/btn_camera1"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="摄像头1"
+                    android:layout_marginRight="5dp"/>
+                <Button
+                    android:id="@+id/btn_camera2"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="摄像头2"
+                    android:layout_marginLeft="5dp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="车位实时状态"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#E3F2FD"
+                    android:padding="16dp"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="车位1"/>
+                    <TextView
+                        android:id="@+id/stall1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="空闲"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#1976D2"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#E3F2FD"
+                    android:padding="16dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="车位2"/>
+                    <TextView
+                        android:id="@+id/stall2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="空闲"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#1976D2"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="远程道闸控制"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="远程开闸 1"
+                android:onClick="openGate1"
+                android:backgroundTint="#00695C"
+                android:textColor="#fff"
+                android:layout_marginTop="12dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="远程开闸 2"
+                android:onClick="openGate2"
+                android:backgroundTint="#00695C"
+                android:textColor="#fff"
+                android:layout_marginTop="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="远程关闸 1"
+                android:onClick="closeGate1"
+                android:backgroundTint="#B71C1C"
+                android:textColor="#fff"
+                android:layout_marginTop="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="远程关闸 2"
+                android:onClick="closeGate2"
+                android:backgroundTint="#B71C1C"
+                android:textColor="#fff"
+                android:layout_marginTop="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="关闭入口"
+                android:onClick="closeEntry"
+                android:backgroundTint="#FF9800"
+                android:textColor="#fff"
+                android:layout_marginTop="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="开启入口"
+                android:onClick="openEntry"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#fff"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="运营统计"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <!-- 车牌识别记录 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="车牌识别记录"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <ListView
+                    android:id="@+id/lv_plate_records"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#F5F5F5"/>
+            </LinearLayout>
+
+            <!-- 报警事件 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="报警事件"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <ListView
+                    android:id="@+id/lv_alarm_events"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#F5F5F5"/>
+            </LinearLayout>
+            <Button
+                android:id="@+id/btn_blacklist"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="黑白名单管理"
+                android:backgroundTint="#2196F3"
+                android:textColor="#fff"
+                android:layout_marginTop="16dp"/>
+            <Button
+                android:id="@+id/btn_admin_logout"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="退出登录"
+                android:backgroundTint="#E53935"
+                android:textColor="#fff"
+                android:layout_marginTop="16dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="停车次数"/>
+                    <TextView
+                        android:id="@+id/allCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="总收入"/>
+                    <TextView
+                        android:id="@+id/allMoney"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 元"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="#D32F2F"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="清空统计"
+                android:onClick="clearStats"
+                android:backgroundTint="#E53935"
+                android:textColor="#fff"
+                android:layout_marginTop="16dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

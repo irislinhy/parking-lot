@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="30dp"
+    android:background="#F0F4FF">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="智能停车场管理系统"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#1A237E"
+        android:gravity="center"
+        android:layout_marginBottom="40dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:padding="25dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="账号登录"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#333"
+            android:layout_marginBottom="20dp"/>
+
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="请输入账号"
+            android:background="#F5F7FA"
+            android:paddingHorizontal="15dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="请输入密码"
+                android:inputType="textPassword"
+                android:background="#F5F7FA"
+                android:paddingHorizontal="15dp"/>
+
+            <ImageView
+                android:id="@+id/iv_toggle_pwd"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="15dp"
+                android:src="@android:drawable/ic_menu_view"/>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="登录"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#1A237E"
+            android:layout_marginTop="25dp"/>
+
+        <TextView
+            android:id="@+id/tv_to_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="没有账号？去注册"
+            android:textSize="14sp"
+            android:textColor="#1A237E"
+            android:gravity="center"
+            android:layout_marginTop="15dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="30dp"
+    android:background="#F0F4FF">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="功能菜单"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#1A237E"
+        android:gravity="center"
+        android:layout_marginBottom="40dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="← 返回登录"
+        android:backgroundTint="#e3e3e3"
+        android:onClick="goBack"/>
+    <Button
+        android:id="@+id/btn_park"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="车位控制系统"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:backgroundTint="#1A237E"/>
+
+    <Button
+        android:id="@+id/btn_record"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="停车记录"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:backgroundTint="#0277BD"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="退出登录"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:backgroundTint="#D32F2F"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>

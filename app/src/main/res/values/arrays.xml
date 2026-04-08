@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="blacklist_types">
+        <item>黑名单</item>
+        <item>白名单</item>
+    </string-array>
+</resources>
