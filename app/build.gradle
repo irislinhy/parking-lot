@@ -1,0 +1,58 @@
+plugins {
+    alias(libs.plugins.androidApplication)
+}
+
+android {
+    namespace 'com.example.aliyunapplication'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.aliyunapplication"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    // 系统基础依赖（不动）
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+
+    // 测试依赖（不动）
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+
+    // material 修复版本
+    implementation 'com.google.android.material:material:1.12.0'
+
+    // ✅ HiveMQ MQTT 纯客户端依赖（避免旧 support 库冲突）
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5'
+
+    // ✅ 移除了 MySQL/JDBC/阿里云 所有垃圾依赖
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'org.videolan.android:libvlc-all:3.5.1'
+    implementation 'com.google.android.exoplayer:exoplayer:2.19.1'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.19.1'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.19.1'
+// RTSP extension
+    implementation 'com.google.android.exoplayer:extension-rtmp:2.19.1' // 可选，RTMP支持
+
+}

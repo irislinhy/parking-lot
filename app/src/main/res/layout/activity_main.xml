@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f7fa">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- ====================== 【正确位置】返回按钮 放最顶部 ====================== -->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← 返回菜单"
+            android:backgroundTint="#eeeeee"
+            android:textColor="#333333"
+            android:onClick="goBack"/>
+        <!-- 车位电子地图 -->
+        <com.example.aliyunapplication.ParkingMapView
+            android:id="@+id/parking_map"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF"/>
+        <!-- 剩余车位数显示 -->
+        <TextView
+            android:id="@+id/tv_free_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="剩余车位：0"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:background="#E0E0E0"
+            android:layout_marginTop="10dp"/>
+        <!-- 车位状态 -->
+        //<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="车位状态"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="16dp"
+                    android:gravity="center">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="车位1"/>
+                    <TextView
+                        android:id="@+id/Temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="未预约"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#2E7D32"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#E8F5E8"
+                    android:padding="16dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="车位2"/>
+                    <TextView
+                        android:id="@+id/Smog"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="未预约"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#2E7D32"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        //</LinearLayout>
+
+        <!-- 车辆信息 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginTop="10dp">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="当前车辆" android:textSize="18sp" android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/hy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="无"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#1A237E"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/hy_slot1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="车位1：无"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/hy_slot2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="车位2：无"
+                android:textSize="16sp"
+                android:layout_marginTop="2dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="停车时长"/>
+                    <TextView
+                        android:id="@+id/play"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00:00:00"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="费用"/>
+                    <TextView
+                        android:id="@+id/play1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 元"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#D32F2F"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/play_slot1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="车位1时长：00:00:00"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/play_slot2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="车位2时长：00:00:00"
+                android:textSize="16sp"
+                android:layout_marginTop="2dp"/>
+            <TextView
+                android:id="@+id/money_slot1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="车位1费用：0 元"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/money_slot2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="车位2费用：0 元"
+                android:textSize="16sp"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <!-- 操作区 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginTop="10dp">
+
+            <Spinner
+                android:id="@+id/provinceSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="#f1f3f4"/>
+
+            <EditText
+                android:id="@+id/highesthumiEditText1"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="输入车牌号"
+                android:background="#f1f3f4"
+                android:layout_marginTop="10dp"/>
+
+            <Spinner
+                android:id="@+id/parking_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="#f1f3f4"
+                android:layout_marginTop="10dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="确认执行"
+                android:onClick="onSendButtonClicked"
+                android:backgroundTint="#1A237E"
+                android:textColor="#fff"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="调试按钮（仅Debug）"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="占用1"
+                    android:onClick="onDebugOccupy1"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="空闲1"
+                    android:onClick="onDebugFree1"
+                    android:layout_marginLeft="8dp"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="结算1"
+                    android:onClick="onDebugSettle1"
+                    android:layout_marginLeft="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="占用2"
+                    android:onClick="onDebugOccupy2"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="空闲2"
+                    android:onClick="onDebugFree2"
+                    android:layout_marginLeft="8dp"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="结算2"
+                    android:onClick="onDebugSettle2"
+                    android:layout_marginLeft="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btn_entry_guide"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="入场引导"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#fff"
+                android:layout_marginRight="5dp"/>
+
+            <Button
+                android:id="@+id/btn_exit_guide"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="出场引导"
+                android:backgroundTint="#FF9800"
+                android:textColor="#fff"
+                android:layout_marginLeft="5dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
